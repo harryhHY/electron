@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>process</title>
+</head>
+
+<body>
+    <h1>
+        process
+    </h1>
+    <div id="btn1" onclick="getProcess()">
+        查看
+    </div>
+</body>
+<script>
+    function getProcess(){
+
+        // console.log("crash:",process.crash(),"导致当前进程崩溃的主线程。")
+        // console.log("hang:",process.hang(),"导致当前进程挂起的主线程。")
+        console.log("getCreationTime:",process.getCreationTime(),"从纪元开始的毫秒数，如果信息不可用则返回")
+        console.log("getHeapStatistics:",process.getHeapStatistics(),"")
+        console.log("argv:",process.argv,"")
+        console.log("env:",process.env,"环境变量")
+        console.log("arch:",process.arch,"系统位数")
+        console.log("pid:",process.pid,"系统位数")
+        console.log("platform:",process.pid,"系统")
+    }
+</script>
+
+</html>
