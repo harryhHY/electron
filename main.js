@@ -1,5 +1,5 @@
 var electron = require("electron");
-
+ 
 var app = electron.app;
 
 var BrowserWindow = electron.BrowserWindow;
@@ -13,7 +13,8 @@ app.on("ready", () => {
     width: 1200,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      webviewTag:true
     },
   });
   //electron 的生命周期函数
@@ -39,7 +40,7 @@ app.on("ready", () => {
   // require("./main/menu");
   mainWindow.webContents.openDevTools();
   // mainWindow.loadFile("demo.html");
-  mainWindow.loadFile("process.html");
+  mainWindow.loadFile("webview.html");
 
 
 });

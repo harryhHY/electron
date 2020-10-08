@@ -14,20 +14,44 @@
     <div id="btn1" onclick="getProcess()">
         查看
     </div>
+    <div style="background-color: red; width: 100%;height: 300px;" id="bb1">
+        <button>
+            file
+        </button>
+        <div>
+            拖拽文件
+        </div>
+    </div>
 </body>
 <script>
-    function getProcess(){
+    const fs = require('fs')
+    function getProcess() {
 
         // console.log("crash:",process.crash(),"导致当前进程崩溃的主线程。")
         // console.log("hang:",process.hang(),"导致当前进程挂起的主线程。")
-        console.log("getCreationTime:",process.getCreationTime(),"从纪元开始的毫秒数，如果信息不可用则返回")
-        console.log("getHeapStatistics:",process.getHeapStatistics(),"")
-        console.log("argv:",process.argv,"")
-        console.log("env:",process.env,"环境变量")
-        console.log("arch:",process.arch,"系统位数")
-        console.log("pid:",process.pid,"系统位数")
-        console.log("platform:",process.pid,"系统")
+        console.log("getCreationTime:", process.getCreationTime(), "从纪元开始的毫秒数，如果信息不可用则返回")
+        console.log("getHeapStatistics:", process.getHeapStatistics(), "")
+        console.log("argv:", process.argv, "")
+        console.log("env:", process.env, "环境变量")
+        console.log("arch:", process.arch, "系统位数")
+        console.log("pid:", process.pid, "系统位数")
+        console.log("platform:", process.pid, "系统")
     }
+    const dragWrapper = document.getElementById("bb1");
+    dragWrapper.addEventListener("drop", (e) => {
+        e.preventDefault();
+
+        const files = e.dataTransfer.files;
+        if (files && files.length > 0) {
+            const path = files[0].path
+            console.log("path", path);
+            const content  = fs.readFileSync(path)
+            console.log("content", content.toString());
+        }
+    })
+    dragWrapper.addEventListener("dragover", (e) => {
+        e.preventDefault()
+    })
 </script>
 
 </html>
