@@ -40,7 +40,7 @@ app.on("ready", () => {
   // require("./main/menu");
   mainWindow.webContents.openDevTools();
   // mainWindow.loadFile("demo.html");
-  mainWindow.loadFile("webview.html");
+  mainWindow.loadFile("father.html");
 
 
 });
